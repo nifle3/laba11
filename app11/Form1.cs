@@ -5,6 +5,7 @@ namespace app11
         public Form1()
         {
             InitializeComponent();
+            using (StudentContext db = new StudentContext()) { }
         }
     }
 }

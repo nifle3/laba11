@@ -10,7 +10,12 @@ namespace app11
 {
     public class StudentContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public StudentContext() : base("DbConnection") { }
+        public DbSet<Student> Users => Set<Student>();
+        public StudentContext() => Database.EnsureCreated();
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=StudentDb.db");
+        }
     }
 }
