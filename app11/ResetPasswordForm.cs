@@ -24,6 +24,7 @@ namespace app11
                 return;
 
             string email = textBox1.Text;
+            string newPassword = PasswordGenerator.GetPassword();
 
 
         }
