@@ -18,5 +18,35 @@ namespace app11
             ResetPasswordForm form = new();
             form.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1 == null || textBox2 == null)
+                return;
+
+            string password = HashPassword.GetHashString(textBox2.Text);
+            Student? student = FindStudent(password);
+
+            if (student is null)
+                return;
+
+            InfoForm form = InfoForm.Init(student);
+            form.Show();
+        }
+
+        private Student? FindStudent(string pass)
+        {
+            Student? anw = null;
+            using (StudentContext db = new())
+            {
+                foreach(Student student in db.Users)
+                {
+                    if (student.Email == textBox1.Text. && student.Password == pass)
+                        anw = student;
+                }
+            }
+
+            return anw;
+        }
     }
 }
