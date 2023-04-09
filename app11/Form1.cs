@@ -41,7 +41,7 @@ namespace app11
             {
                 foreach(Student student in db.Users)
                 {
-                    if (student.Email == textBox1.Text. && student.Password == pass)
+                    if (student.Email == textBox1.Text && student.Password == pass)
                         anw = student;
                 }
             }

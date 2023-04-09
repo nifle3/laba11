@@ -20,6 +20,7 @@ namespace app11
         {
             InitializeComponent();
             this.std = std;
+
         }
 
         public static InfoForm Init(Student std)
@@ -33,6 +34,21 @@ namespace app11
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             form = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+
+            listBox1.Items.Add(std.StudentId);
+            listBox1.Items.Add(std.FirstName);
+            listBox1.Items.Add(std.SecondName);
+            listBox1.Items.Add(std.Birthday);
+            listBox1.Items.Add(std.Email);
+            listBox1.Items.Add(std.NumberPhone);
+            listBox1.Items.Add(std.Facility);
+            listBox1.Items.Add(std.Group);
+            listBox1.Items.Add(std.DateOfEntryToEducation);
         }
     }
 }
