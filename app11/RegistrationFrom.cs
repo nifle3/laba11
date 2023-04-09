@@ -1,11 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using System.Transactions;
-using System.Xml.Serialization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace app11
 {
@@ -25,6 +19,7 @@ namespace app11
                 return;
 
             AddStudentToDb(student);
+            this.Close();
         }
 
         public Student? CreateStudent()
@@ -130,7 +125,7 @@ namespace app11
 
         private bool IsInvalidValueInt(string text, string whatIsIt)
         {
-            if (int.TryParse(text, out _)) 
+            if (!int.TryParse(text, out _)) 
             {
                 Error.Text = $"{whatIsIt} has invalid value";
                 return true;
