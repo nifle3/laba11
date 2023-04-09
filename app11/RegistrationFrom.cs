@@ -66,7 +66,7 @@ namespace app11
                 return null;
 
             DateTime startOfEducation = ReformDateTimeInput(textBox9.Text);
-            string password = textBox10.Text;
+            string password = HashPassword.GetHashString(textBox10.Text);
             Student student = new(firstName, secondName, birthday, email, phoneNumber,
                 facility, group, course, startOfEducation, password);
 
