@@ -15,7 +15,7 @@ namespace app11
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=StudentDb.db");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Laba11Usersasdb;Trusted_Connection=True;");
         }
     }
 }
