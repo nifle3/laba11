@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.Error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -207,9 +208,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(93, 269);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 15);
+            this.label10.Size = new System.Drawing.Size(101, 15);
             this.label10.TabIndex = 19;
-            this.label10.Text = "End of education";
+            this.label10.Text = "Start of education";
             // 
             // button1
             // 
@@ -221,11 +222,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Error
+            // 
+            this.Error.AutoSize = true;
+            this.Error.ForeColor = System.Drawing.Color.Maroon;
+            this.Error.Location = new System.Drawing.Point(192, 345);
+            this.Error.Name = "Error";
+            this.Error.Size = new System.Drawing.Size(0, 15);
+            this.Error.TabIndex = 21;
+            // 
             // RegistrationFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Error);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -277,5 +288,6 @@
         private Label label9;
         private Label label10;
         private Button button1;
+        private Label Error;
     }
 }

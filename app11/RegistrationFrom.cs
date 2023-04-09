@@ -18,6 +18,7 @@ namespace app11
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Error.Text = string.Empty;
             Student? student = CreateStudent();
 
             if (student == null)
@@ -31,7 +32,7 @@ namespace app11
             string firstName = textBox1.Text;
             string secondName = textBox2.Text;
 
-            if (!CheckDateTimeInput(textBox3.Text))
+            if (IsInvalidValueDate(CheckDateTimeInput(textBox3.Text), "birthday"))
                 return null;
 
             DateTime birthday = ReformDateTimeInput(textBox3.Text);
@@ -42,23 +43,26 @@ namespace app11
             string email = emailbox.Text;
 
             if (!CheckCorrectPhoneNumber())
+            {
+                Error.Text = "Phone number has invalid value";
                 return null;
+            }
 
             string phoneNumber = phoneBox.Text;
             string facility = textBox6.Text;
 
-            if (!int.TryParse(textBox8.Text, out _))
+            if (IsInvalidValueInt(textBox8.Text, "group"))
                 return null;
 
             int group = int.Parse(textBox8.Text);
 
 
-            if (!int.TryParse(textBox7.Text, out _))
+            if (IsInvalidValueInt(textBox7.Text, "course"))
                 return null;
 
             int course = int.Parse(textBox7.Text);
 
-            if (!CheckDateTimeInput(textBox9.Text))
+            if (IsInvalidValueDate(CheckDateTimeInput(textBox9.Text), "start of education"))
                 return null;
 
             DateTime startOfEducation = ReformDateTimeInput(textBox9.Text);
@@ -112,6 +116,28 @@ namespace app11
         private bool CheckCorrectPhoneNumber()=>
             Regex.IsMatch(phoneBox.Text, @"[+][0-9]\d+", RegexOptions.None) ||
             Regex.IsMatch(phoneBox.Text, @"\d+", RegexOptions.None);
+
+        private bool IsInvalidValueDate(bool a, string whatIsIt)
+        {
+            if (a)
+            {
+                Error.Text = $"{whatIsIt} has invalid value";
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool IsInvalidValueInt(string text, string whatIsIt)
+        {
+            if (int.TryParse(text, out _)) 
+            {
+                Error.Text = $"{whatIsIt} has invalid value";
+                return true;
+            }
+
+            return false;
+        }
 
         private void AddStudentToDb(Student st)
         {
