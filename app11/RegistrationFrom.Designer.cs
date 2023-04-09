@@ -31,8 +31,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.emailbox = new System.Windows.Forms.TextBox();
+            this.phoneBox = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -71,19 +72,19 @@
             this.textBox3.Size = new System.Drawing.Size(100, 23);
             this.textBox3.TabIndex = 2;
             // 
-            // textBox4
+            // emailbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(192, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 3;
+            this.emailbox.Location = new System.Drawing.Point(192, 116);
+            this.emailbox.Name = "emailbox";
+            this.emailbox.Size = new System.Drawing.Size(100, 23);
+            this.emailbox.TabIndex = 3;
             // 
-            // textBox5
+            // phoneBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(192, 145);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 4;
+            this.phoneBox.Location = new System.Drawing.Point(192, 145);
+            this.phoneBox.Name = "phoneBox";
+            this.phoneBox.Size = new System.Drawing.Size(100, 23);
+            this.phoneBox.TabIndex = 4;
             // 
             // textBox6
             // 
@@ -210,11 +211,22 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "End of education";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(192, 319);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "sign up";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistrationFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox10);
@@ -230,8 +242,8 @@
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.phoneBox);
+            this.Controls.Add(this.emailbox);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -247,8 +259,8 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox emailbox;
+        private TextBox phoneBox;
         private TextBox textBox6;
         private TextBox textBox7;
         private TextBox textBox8;
@@ -264,5 +276,6 @@
         private TextBox textBox10;
         private Label label9;
         private Label label10;
+        private Button button1;
     }
 }
