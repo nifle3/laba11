@@ -7,5 +7,11 @@ namespace app11
             InitializeComponent();
             using (StudentContext db = new StudentContext()) { }
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegistrationFrom form = new();
+            form.Show();
+        }
     }
 }
