@@ -13,15 +13,20 @@ namespace app11
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            if (UnfindEmailInDb())
+            string newPassword = PasswordGenerator.GetPassword();
+
+            if (UnfindEmailInDb(newPassword))
+            {
+                Error.Text = "Mail doesn't exist";
                 return;
+            }
 
             string email = textBox1.Text;
-            string newPassword = PasswordGenerator.GetPassword();
             EmailSender.SendNewPass(email, newPassword);
+            this.Close();
         }
 
-        private bool UnfindEmailInDb()
+        private bool UnfindEmailInDb(string pass)
         {
             if (CheckIncorrectEmail())
                 return true;
@@ -29,10 +34,13 @@ namespace app11
             bool a = true;
             using (StudentContext db = new())
             {
-                foreach(Student student in db.Users.ToArray<Student>())
+                foreach (Student student in db.Users.ToArray<Student>())
                 {
                     if (student.Email == textBox1.Text)
                     {
+                        student.Password = HashPassword.GetHashString(pass);
+                        db.Users.Update(student);
+                        db.SaveChanges();
                         a = false;
                         break;
                     }
@@ -45,12 +53,5 @@ namespace app11
         private bool CheckIncorrectEmail() =>
             !Regex.IsMatch(textBox1.Text, @"\S+[@]\S+[.]");
 
-        private void UpdatePass(string password)
-        {
-            using(StudentContext db = new()) 
-            { 
-                
-            }
-        }
     }
 }

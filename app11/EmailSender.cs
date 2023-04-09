@@ -12,18 +12,19 @@ namespace app11
     {
         public static void SendNewPass(string email, string pass)
         {
-            MailAddress from = new("forrandom111222@gmail.com","Artem");
+            MailAddress from = new("laba11forkitkai@mail.ru\r\n", "Artem");
             MailAddress to = new(email);
 
             MailMessage m = new(from, to);
             m.Subject = "New password";
             m.Body = $"New password - {pass}";
-            m.IsBodyHtml = true;
 
-            SmtpClient smtp = new ("", "");
-            smtp.Credentials = new NetworkCredential("forrandom111222@gmail.com", "uD15hM59X#rR");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
+            using (SmtpClient smtp = new("smtp.mail.ru", 587))
+            {
+                smtp.Credentials = new NetworkCredential("laba11forkitkai@mail.ru\r\n", "Qv7Kezvkps1yLJ8g0faw");
+                smtp.EnableSsl = true; 
+                smtp.Send(m);
+            }
         }
     }
 }
