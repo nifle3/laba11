@@ -114,7 +114,7 @@ namespace app11
 
         private bool IsInvalidValueDate(bool a, string whatIsIt)
         {
-            if (a)
+            if (!a)
             {
                 Error.Text = $"{whatIsIt} has invalid value";
                 return true;
