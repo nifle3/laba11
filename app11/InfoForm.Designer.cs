@@ -60,6 +60,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "InfoForm";
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.ResumeLayout(false);
 
         }
